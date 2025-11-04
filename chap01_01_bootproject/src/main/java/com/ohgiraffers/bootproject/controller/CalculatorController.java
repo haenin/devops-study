@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
+
 @RestController
 @Slf4j
 public class CalculatorController {
@@ -26,7 +29,7 @@ public class CalculatorController {
     }
 
 
-    @GetMapping("/plus")
+    @PostMapping("/plus")
     public ResponseEntity<CalculatorDTO> plusTwoNumbers(CalculatorDTO calculatorDTO) {
         log.info("calculatorDTO = {}",  calculatorDTO);
         int result = calculatorService.plusTwoNumbers(calculatorDTO);
@@ -34,4 +37,5 @@ public class CalculatorController {
 
         return ResponseEntity.ok().body(calculatorDTO);
     }
+
 }
